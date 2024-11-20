@@ -26,8 +26,8 @@
       /* Tarot card message styling */
       .tarot-card {
         position: relative;
+        margin: 10px auto;
         display: inline-block;
-        margin: 10px;
       }
 
       .tarot-card img {
@@ -53,8 +53,32 @@
       }
 
       .container {
-        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         margin-top: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          display: block;
+          overflow-y: auto;
+        }
+
+        .tarot-card {
+          display: block;
+          margin: 20px auto;
+        }
+
+        .tarot-card img {
+          width: 90%; /* Adjust width for smaller screens */
+          height: auto; /* Maintain aspect ratio */
+        }
+
+        .card-message {
+          font-size: 1.2rem; /* Slightly smaller font on smaller screens */
+          width: 90%;
+        }
       }
 
       .twitter-btn {
@@ -91,12 +115,11 @@
   </head>
   <body>
     <video class="video-background" autoplay loop muted>
-      <source src="https://drive.google.com/file/d/1XtzJDYcYN51w-OkFQ7UYvqZf6cENhlA7/preview" type="video/mp4" />
+      <source src="https://drive.google.com/uc?export=download&id=1XtzJDYcYN51w-OkFQ7UYvqZf6cENhlA7" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <audio autoplay loop id="myAudio" controls>
       <source src="https://anujgupta855.github.io/khushibirthday/Haareya%20-%20Meri%20Pyaari%20Bindu%20320%20Kbps.mp3" type="audio/mp3" />
-      <source src="https://anujgupta855.github.io/khushibirthday/Haareya%20-%20Meri%20Pyaari%20Bindu%20320%20Kbps.mp3" type="audio/ogg" />
       Your browser does not support the audio element.
     </audio>
 
@@ -148,21 +171,6 @@
       Made with <i id="heart">💖</i>&<i id="coffee">☕</i> by
       <a href="https://github.com/develooperrahulofficial">Developer Anuj</a>
     </div>
-
-    <script>
-      // Automatically click play for the video/audio on page load
-      function autoplay() {
-        var t = setTimeout(function () {
-          var button = document.querySelector('[title="Play"]') || false;
-          if (button) {
-            console.log("Click", button);
-            button.click();
-          }
-        }, 999);
-      }
-      document.addEventListener("DOMContentLoaded", (event) => {
-        autoplay();
-      });
-    </script>
   </body>
 </html>
+
