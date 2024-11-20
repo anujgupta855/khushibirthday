@@ -13,6 +13,7 @@
         font-family: Arial, sans-serif;
         background-color: #f3f4f6;
         overflow-x: hidden;
+        text-align: center;
       }
 
       .birthday-message {
@@ -37,6 +38,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .tarot-card:hover {
+        transform: scale(1.05);
       }
 
       .tarot-card img {
@@ -48,6 +55,18 @@
       }
 
       .card-message {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #333;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .hidden-message {
+        display: none;
         margin-top: 10px;
         font-size: 1.2rem;
         color: #333;
@@ -92,7 +111,7 @@
   </head>
   <body>
     <video class="video-background" autoplay loop muted>
-      <source src="https://drive.google.com/uc?export=download&id=1XtzJDYcYN51w-OkFQ7UYvqZf6cENhlA7" type="video/mp4" />
+      <source src="https://drive.google.com/file/d/1XtzJDYcYN51w-OkFQ7UYvqZf6cENhlA7/preview" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -105,39 +124,46 @@
 
     <!-- Tarot cards -->
     <div class="container">
-      <div class="tarot-card">
+      <div class="tarot-card" onclick="showMessage(0)">
         <img src="https://raw.githubusercontent.com/anujgupta855/birthdaywish/refs/heads/main/images/1.jpg" />
         <div class="card-message">Happy Birthday My Bestie 🎉 Let's Rock the Day! 🎸</div>
+        <div class="hidden-message" id="message-0">You are awesome! 🎉 Keep shining!</div>
       </div>
 
-      <div class="tarot-card">
+      <div class="tarot-card" onclick="showMessage(1)">
         <img src="https://raw.githubusercontent.com/anujgupta855/birthdaywish/refs/heads/main/images/2.jpg" />
         <div class="card-message">You really mean a lot to me 💖</div>
+        <div class="hidden-message" id="message-1">You bring so much joy to my life! 😄</div>
       </div>
 
-      <div class="tarot-card">
+      <div class="tarot-card" onclick="showMessage(2)">
         <img src="https://raw.githubusercontent.com/anujgupta855/birthdaywish/refs/heads/main/images/8.jpg" />
         <div class="card-message">Aaj Ke Baad, Birthday Mein No Rona Dhona 😎</div>
+        <div class="hidden-message" id="message-2">No more tears, just smiles! 😁</div>
       </div>
 
-      <div class="tarot-card">
+      <div class="tarot-card" onclick="showMessage(3)">
         <img src="https://raw.githubusercontent.com/anujgupta855/birthdaywish/refs/heads/main/images/9.jpg" />
         <div class="card-message">I Am With You Forever 💖</div>
+        <div class="hidden-message" id="message-3">Together forever, best friend! 💫</div>
       </div>
 
-      <div class="tarot-card">
+      <div class="tarot-card" onclick="showMessage(4)">
         <img src="https://raw.githubusercontent.com/anujgupta855/birthdaywish/refs/heads/main/images/5.jpg" />
         <div class="card-message">Do you wanna see my crush? Let's open your selfie camera! 😎</div>
+        <div class="hidden-message" id="message-4">Smile! You are the best! 😄</div>
       </div>
 
-      <div class="tarot-card">
+      <div class="tarot-card" onclick="showMessage(5)">
         <img src="https://raw.githubusercontent.com/anujgupta855/birthdaywish/refs/heads/main/images/6.jpg" />
         <div class="card-message">Chal ab jyada senti mat hona kyuki tu keval hasti hui acche lgti hai 💖</div>
+        <div class="hidden-message" id="message-5">Your smile lights up the world! 😊</div>
       </div>
 
-      <div class="tarot-card">
+      <div class="tarot-card" onclick="showMessage(6)">
         <img src="https://raw.githubusercontent.com/anujgupta855/birthdaywish/refs/heads/main/images/7.jpg" />
         <div class="card-message">Enjoy Your Day! 🎉 Good night 💖</div>
+        <div class="hidden-message" id="message-6">Sweet dreams and lots of love! 💕</div>
       </div>
     </div>
 
@@ -151,5 +177,13 @@
       Made with <i id="heart">💖</i>&<i id="coffee">☕</i> by
       <a href="https://github.com/develooperrahulofficial">Developer Anuj</a>
     </div>
+
+    <script>
+      // Show the hidden message when a card is clicked
+      function showMessage(cardIndex) {
+        const message = document.getElementById(`message-${cardIndex}`);
+        message.style.display = message.style.display === "block" ? "none" : "block";
+      }
+    </script>
   </body>
 </html>
